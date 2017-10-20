@@ -98,6 +98,9 @@ class CommandLine(cmd.Cmd):
         """
         if arg == 'mycol':
             self.posts = self.db.mycol
+            print("***********************************")
+            print("**** Selected mycol collection ****")
+            print("***********************************")
         else:
             print("****Collection not found****")
 
@@ -117,9 +120,12 @@ class CommandLine(cmd.Cmd):
             for i in range(int(arg)):
                 pprint.pprint(print_events[i])
         else:
-            print ("****Command not found****")
-
-    
+            for events in print_events:
+                try:
+                    if arg in events['name'].lower():
+                        pprint.pprint(events)
+                except:
+                    pass
 
 if __name__ == '__main__':
     """
