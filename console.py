@@ -14,6 +14,8 @@ from search_words import search_words
 from search_words import desc_words
 import cmd
 import pprint
+from fb_token import token
+from fb_token import graph
 
 class CommandLine(cmd.Cmd):
     """
@@ -80,15 +82,20 @@ class CommandLine(cmd.Cmd):
         if arg == 'test':
             self.db = self.client.myTestDb
             print(self.db)
+            print('                                             ')
             print('*********************************************')
             print('****You are working on the test database!****')
             print('*********************************************')
+            print('                                             ')
+
         elif arg == 'jam':
             self.db = self.clint.jamDb
             print(self.db)
+            print('                                             ')
             print('*********************************************')
             print('  ****You are working on Jam database!****   ')
             print('*********************************************')
+            print('                                             ')
         else:
             print("********Database not available**********")
 
@@ -98,9 +105,11 @@ class CommandLine(cmd.Cmd):
         """
         if arg == 'mycol':
             self.posts = self.db.mycol
+            print('                                   ')
             print("***********************************")
             print("**** Selected mycol collection ****")
             print("***********************************")
+            print('                                   ')
         else:
             print("****Collection not found****")
 
@@ -126,6 +135,64 @@ class CommandLine(cmd.Cmd):
                         pprint.pprint(events)
                 except:
                     pass
+
+    def do_insert(self, arg):
+        """
+        Inserts data from FB API into Mongo Db.
+        Records with duplicate names are filtered
+        """
+
+        # This loop iterates through records to place name into list.
+        # Used to filter duplicates.
+        name_list = []
+        event_names = self.posts.find({}, {"name":1, "_id": 0})
+        for name in event_names:
+            try:
+                nameString = list(name.values())
+                name_list.append(nameString[0])
+            except IndexError:
+                pass
+
+        for i in search_words:
+            events = graph.request('/search?q={}&type=event&limit=10000'.format(i))
+            for j in range(len(events['data'])):
+                try:
+                    if (events['data'][j]['place']['location']['city']) == 'Austin':
+                        if (events['data'][j]['name'] not in event_names):
+                            post_data = loads(json.dumps(events['data'][j]))
+                            result = self.posts.insert_one(post_data)
+                except KeyError:
+                    pass
+
+    def do_length(self, arg):
+        """
+        Prints length of records inside Db
+        """
+        event_list = self.posts.find()
+        count = 0
+        for events in event_list:
+            count += 1
+        print(count)
+
+    def do_clean(self, arg):
+        """
+        Removes records that are not relevant from collection
+        """
+        words = desc_words
+        result = self.posts.find({}, {"description":1, "_id": 0})
+
+        for i in result:
+            myArray = list(i.values())
+            try:
+                for j in range(len(words)):
+                    if words[j] in myArray[0].lower():
+                        print("tst")
+                        break
+                    if j == len(words) - 1:
+                        self.posts.delete_many(i)
+            except IndexError:
+                pass
+
 
 if __name__ == '__main__':
     """
