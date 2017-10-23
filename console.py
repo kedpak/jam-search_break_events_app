@@ -119,7 +119,7 @@ class CommandLine(cmd.Cmd):
         Inputs:
         ----all: print all records in collection
         ----'int': prints number of records based on int argument passed
-        ----
+        ----arg: prints name of arg input if exists
         """
         print_events = self.posts.find()
         if arg == 'all':
@@ -186,12 +186,26 @@ class CommandLine(cmd.Cmd):
             try:
                 for j in range(len(words)):
                     if words[j] in myArray[0].lower():
-                        print("tst")
                         break
                     if j == len(words) - 1:
+                        print("**** Irrelevant records have been deleted****")
                         self.posts.delete_many(i)
             except IndexError:
                 pass
+
+    def do_group(self, arg):
+        """
+        Inserts record events that have been posted in
+        specific group page from FB API
+        """
+        group_events = graph.request('{}/events'.format(arg))
+        try:
+            for events in group_events['data']:
+                event_data = loads(json.dumps(events))
+                result = self.posts.insert_one(event_data)
+                print("**** Events from {} group page have been added! ****". format(arg))
+        except:
+            print("**** No souch group ID exists! ****")
 
 
 if __name__ == '__main__':
