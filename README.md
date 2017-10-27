@@ -1,1 +1,2 @@
-# jam-search_break_events_app
+# Jam Search - Search for all b-boy events in your area
+
