@@ -15,7 +15,6 @@ class ResultBox extends Component {
     };
     this.click = this.click.bind(this);
     this.togglePopup = this.togglePopup.bind(this);
-    let eventId = "59f28ef15decd80ce870a167";
   }
   togglePopup() {
     this.setState({
@@ -39,30 +38,25 @@ class ResultBox extends Component {
       return (
         this.state.posts.map(events =>
           <div key={events.key} className='result_box'
-            onClick={ () => this.click(events._id, events.description, events.time)}
-            id={events._id}
-            >
-          <p>{events.name}</p>
-          {events._id}
-          {events.place && events.place.location && <p>{events.place.location.city}</p>}
+             onClick={ () => this.click(events.name, events.description, events.time)}
+             id={events._id}
+             >
+             <p>{events.name}</p>
+             {events._id}
+             {events.place && events.place.location && <p>{events.place.location.city}</p>}
           </div>
         )
       )
     }
     popUp() {
-      let result = this.state.posts.map(a => a._id)
-      console.log(this.state.eventId)
       return (
-
-          console.log(result),
             <div className='popup'>
-              <div className='popup_inner'>
-              <p>{this.state.eventId}</p>
-              <p>{this.state.eventDes}</p>
-              <button onClick={this.togglePopup.bind(this)}>close me</button>
-              </div>
+               <div className='popup_inner'>
+                  <p>{this.state.eventId}</p>
+                  <p className="eventDesc">{this.state.eventDes}</p>
+                  <button onClick={this.togglePopup.bind(this)}>close me</button>
+               </div>
             </div>
-
       )
     }
   render() {
@@ -76,7 +70,6 @@ class ResultBox extends Component {
            : null
         }
       </div>
-
     );
   }
 }

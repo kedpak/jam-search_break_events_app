@@ -9,9 +9,11 @@ src: local('Jungle Clean'), url('jungle/JungleClean.woff') format('woff');
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Jungle Clean';
   font-size: 50px;
-  background-color: gray;
+  background-image: url("background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
 }
 
 .App-title {
@@ -33,6 +35,7 @@ body {
   bottom: 0;
   margin: auto;
   background-color: rgba(0,0,0, 0.5);
+
 }
 .popup_inner {
   position: absolute;
@@ -41,5 +44,12 @@ body {
   top: 25%;
   bottom: 25%;
   margin: auto;
-  background: white;
+  background: gray;
+  border-radius: 8px;
+  font-size: 20px;
+  overflow: auto;  
+}
+
+.eventDesc {
+  font-size: 15px;
 }
