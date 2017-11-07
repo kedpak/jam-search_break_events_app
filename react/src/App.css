@@ -59,12 +59,14 @@ button {
 .nav_lab {
   font-size: 25px;
   font-family: 'Turntablz BB';
-  background-color: #4682B4;
+  background-color: black;
   border-radius: 25px;
 }
 
 .searchBox {
-  padding-top: 0;
+  padding-top: 10px;
+  border-radius: 20px;
+  background-color: gray;
 }
 
 .result_box {
@@ -82,18 +84,39 @@ button {
   opacity: 0.8;
   border-radius: 10px;
   z-index: 1;
+  overflow: hidden;
+  font-family: "Lucida Console";
 }
 
+.result_box:hover {
+  background-color: #00008B;
+  color: yellow;
+}
+.the_map {
+  overflow: hidden;
+  width :280px;
+  height: 400px;
+  display: flex; /*added*/
+  flex-direction: column;
+  padding-left: 13%;
+  border-radius: 15px;
+}
+
+.inner_map {
+
+  padding-left: 19%;
+}
 .spacer {
   width: 100%;
   height: 90px;
+
 }
 
 .sub_button {
   height: 50px;
-  color: black;
-}
-
-.eventDesc {
-  font-size: 10px;
-}
+  color: red;
+  background-color: #FFD700;
+  opacity: .80;
+  margin-bottom: 15px;
+  border-radius: 60px;
+  }
