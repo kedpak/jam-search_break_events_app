@@ -39,17 +39,34 @@ body {
 }
 .popup_inner {
   position: absolute;
-  left: 25%;
+  left: 15%;
   right: 25%;
   top: 25%;
   bottom: 25%;
   margin: auto;
-  background: gray;
-  border-radius: 8px;
+  background: #708090;
+  border-radius: 20px;
   font-size: 20px;
-  overflow: auto;  
+  overflow: auto;
+  height: 510px;
+  width: 1000px;
+  opacity: .9;
+}
+
+.map {
+  width: 40%;
+  height: 40%;
 }
 
 .eventDesc {
   font-size: 15px;
+  color: black;
+}
+
+.eventName {
+  font-size: 30px;
+}
+
+.eventTime {
+  font-size: 30px;
 }
