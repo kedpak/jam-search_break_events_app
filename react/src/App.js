@@ -16,7 +16,6 @@ class App extends Component {
     this.click = this.click.bind(this);
 
   }
-
     handleChange(event) {
       this.setState({value: event.target.value});
     }
@@ -38,8 +37,9 @@ class App extends Component {
         <label className="nav_lab">
            search location:
           <input type="text" value={this.state.value} onChange={this.handleChange} className="searchBox"/>
-        </label>
           <input type="submit" value="Submit" onClick={this.click} className="sub_button"/>
+        </label>
+
       </form>
           <div className="spacer"></div>
           <p className="App-intro">
