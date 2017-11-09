@@ -20,6 +20,7 @@ class ResultBox extends Component {
     this.click = this.click.bind(this);
     this.togglePopup = this.togglePopup.bind(this);
   }
+
   togglePopup() {
     this.setState({
       showPopup: !this.state.showPopup
@@ -41,12 +42,33 @@ class ResultBox extends Component {
                      eventPlace: place});
       this.togglePopup();
     }
+    degreesToRadians(degrees) {
+        return degrees * Math.PI / 180;
+    }
+    distanceInKmBetweenEarthCoordinates(lat1, lon1, lat2, lon2) {
+        let earthRadiusKm = 6371;
+        let dLat = this.degreesToRadians(lat2-lat1);
+        let dLon = this.degreesToRadians(lon2-lon1);
+        lat1 = this.degreesToRadians(lat1);
+        lat2 = this.degreesToRadians(lat2);
+
+        let a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                      Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
+        let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+              return earthRadiusKm * c;
+      }
+
+
       buildRow() {
+        let hey = this.distanceInKmBetweenEarthCoordinates(this.props.searchLat, this.props.searchLng,
+        45.50561  , -73.56712)
+
         return this.state.posts
         .filter(events =>
             events.place
             && events.place.location
-            && events.place.location.city === this.props.searchVal)
+            && Math.abs(this.distanceInKmBetweenEarthCoordinates(this.props.searchLat, this.props.searchLng,
+              events.place.location.latitude, events.place.location.longitude)) < Math.abs(80.4672) )
         .map(events =>
             <div key={events.key} className='result_box'
                 onClick={() => this.click(events.name, events.description,
@@ -77,11 +99,14 @@ class ResultBox extends Component {
       return (
             <div className='popup'>
                <div className='popup_inner'>
+               <button onClick={this.togglePopup.bind(this)} className="closeButton">X</button>
                   <p className="eventName">{this.state.eventId}</p>
+                  <h2 className="when">When:</h2>
                   <p className="eventTime">{this.state.eventTime.slice(0, 10)}</p>
+                  <h2 className="address">Address:</h2>
                   <p className="eventPlace">{this.state.eventPlace}</p>
+                  <h2 className="info">Info:</h2>
                   <p className="eventDesc">{this.state.eventDes}</p>
-                  <button onClick={this.togglePopup.bind(this)}>close me</button>
                   <div className="inner_map">
                   <Map google={this.props.google} zoom={14}
                   initialCenter={{
@@ -92,14 +117,11 @@ class ResultBox extends Component {
                     <Marker onClick={this.onMarkerClick}
                           name={'Current location'} />
                     <InfoWindow onClose={this.onInfoWindowClose}>
-                      <div>
-
-                      </div>
                     </InfoWindow>
                   </Map>
-                  </div>
 
-               </div>
+                  </div>
+                  </div>
             </div>
       )
     }
