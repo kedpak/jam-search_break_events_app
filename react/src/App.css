@@ -1,4 +1,3 @@
-
 @font-face {
 font-family: 'Turntablz BB';
 font-style: normal;
@@ -42,6 +41,7 @@ button {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
 .Logo {
   font-family: 'Jungle Clean';
   color: blue;
@@ -49,6 +49,9 @@ button {
   padding-right: 10px;
   text-align: left;
   float: left;
+  margin-top: 30px;
+  margin-left: 30px;
+  font-size: 45px;
 }
 .form-body {
   background-color: black;
@@ -61,6 +64,13 @@ button {
   font-family: 'Turntablz BB';
   background-color: black;
   border-radius: 25px;
+  width: 500px;
+
+}
+
+.auto {
+  height: 20px;
+  border-radius: 10px;
 }
 
 .searchBox {
@@ -92,6 +102,7 @@ button {
   background-color: #00008B;
   color: yellow;
 }
+
 .the_map {
   overflow: hidden;
   width :280px;
@@ -108,15 +119,35 @@ button {
 }
 .spacer {
   width: 100%;
-  height: 90px;
+  height: 140px;
 
 }
 
 .sub_button {
   height: 50px;
-  color: red;
   background-color: #FFD700;
-  opacity: .80;
   margin-bottom: 15px;
   border-radius: 60px;
+  font-size: 25px;
+  font-family: 'Turntablz BB';
+  background-color: black;
+  border-radius: 25px;
+  }
+
+  .select_box {
+    width: 160px;
+    float: right;
+    display: inline;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .postEvent {
+    height: 50px;
+    float: right;
+    font-family: 'Turntablz BB';
+    font-size: 25px;
+    background-color: black;
+    border-radius: 25px;
+    margin-top: 40px;
   }

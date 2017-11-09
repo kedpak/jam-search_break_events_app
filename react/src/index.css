@@ -5,6 +5,12 @@ font-weight: normal;
 src: local('Jungle Clean'), url('jungle/JungleClean.woff') format('woff');
 }
 
+@font-face {
+font-family: 'Turntablz BB';
+font-style: normal;
+font-weight: normal;
+src: local('Turntablz BB'), url('turntablez/TURNB___.woff') format('woff');
+}
 
 body {
   margin: 0;
@@ -37,6 +43,7 @@ body {
   background-color: rgba(0,0,0, 0.5);
 
 }
+
 .popup_inner {
   position: absolute;
   left: 15%;
@@ -44,6 +51,7 @@ body {
   top: 25%;
   bottom: 25%;
   margin: auto;
+  padding-top: 30px;
   background: #708090;
   border-radius: 20px;
   font-size: 20px;
@@ -51,6 +59,27 @@ body {
   height: 510px;
   width: 1000px;
   opacity: .9;
+}
+
+.when {
+  font-family: 'Turntablz BB';
+  font-size: 30px;
+  color: black;
+  text-decoration: underline;
+}
+
+.address {
+  font-family: 'Turntablz BB';
+  font-size: 30px;
+  color: black;
+  text-decoration: underline;
+}
+
+.info {
+  font-family: 'Turntablz BB';
+  font-size: 30px;
+  color: black;
+  text-decoration: underline;
 }
 
 .map {
@@ -64,9 +93,26 @@ body {
 }
 
 .eventName {
+  font-size: 40px;
+  font-family: 'Turntablz BB';
+  text-decoration: underline;
+  color: 	#8B0000;
+}
+
+.eventPlace {
   font-size: 30px;
+  color: 	#8B0000;
 }
 
 .eventTime {
   font-size: 30px;
+  color: 	#8B0000;
+}
+
+.closeButton {
+  left: 185px;
+  bottom: 530px;
+  color: red;
+  border-radius: 2px;
+  position: fixed;
 }
