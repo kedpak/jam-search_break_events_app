@@ -38,18 +38,30 @@ router.route('/events')
 			});
 	})
 /* Post new events to the database */
-/*
+
     .post(function(req, res) {
-	    var comment = new Result();
+	    let event = new Result();
 	    //body parser lets us use the req.body
-	    comment.name = req.body.name;
-	    comment.text = req.body.text;
-	    comment.save(function(err) {
+	    event.description = req.body.description;
+	    event.name = req.body.name;
+	    event.id = req.body._id;
+	    event.place = req.body.place;
+	    event.location = req.body.place.location;
+	    event.lat = req.body.place.location.latitude;
+	    event.lng = req.body.place.location.longitude;
+	    event.street = req.body.place.location.street;
+	    event.zip = req.body.place.location.zip;
+	    event.city = req.body.place.location.city;
+	    event.country = req.body.place.location.country;
+	    event.state = req.body.place.location.state;
+	    event.startTime = req.body.start_time;
+	    event.endTime = req.body.end_time;
+	    event.save(function(err) {
 		    if (err)
 			res.send(err);
 		    res.json({ message: 'Comment successfully added!' });
 		});
-		}); */
+});
 
 app.use('/api', router);
 app.listen(port, function() {

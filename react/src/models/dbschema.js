@@ -16,6 +16,9 @@ var ResultSchema = new Schema({
 		    longitude: Number,
 		    street: String,
 		    zip: String,
+		    city: String,
+		    country: String,
+		    state: String
 		},
 		name: String
 	    },
