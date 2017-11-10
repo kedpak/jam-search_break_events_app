@@ -17,7 +17,7 @@ button {
 }
 .App {
   text-align: center;
-  color: red;
+  color: gray;
 }
 
 .App-header {
@@ -44,7 +44,7 @@ button {
 
 .Logo {
   font-family: 'Jungle Clean';
-  color: blue;
+  color: #800000;
   margin: 0;
   padding-right: 10px;
   text-align: left;
@@ -68,9 +68,9 @@ button {
 
 }
 
-.auto {
+.autos {
   height: 20px;
-  border-radius: 10px;
+  color: black;
 }
 
 .searchBox {
@@ -96,6 +96,7 @@ button {
   z-index: 1;
   overflow: hidden;
   font-family: "Lucida Console";
+  color: #DC143C;
 }
 
 .result_box:hover {
@@ -132,6 +133,7 @@ button {
   font-family: 'Turntablz BB';
   background-color: black;
   border-radius: 25px;
+  color: #800000;
   }
 
   .select_box {
@@ -150,4 +152,5 @@ button {
     background-color: black;
     border-radius: 25px;
     margin-top: 40px;
+    color: #800000;
   }

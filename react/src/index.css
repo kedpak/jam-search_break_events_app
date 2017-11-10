@@ -61,6 +61,24 @@ body {
   opacity: .9;
 }
 
+.popup_form {
+  position: absolute;
+  left: 15%;
+  right: 25%;
+  top: 25%;
+  bottom: 25%;
+  margin: auto;
+  padding-top: 30px;
+  background: black;
+  border-radius: 20px;
+  font-size: 20px;
+  overflow: auto;
+  height: 510px;
+  width: 1000px;
+  opacity: .9;
+}
+
+
 .when {
   font-family: 'Turntablz BB';
   font-size: 30px;
