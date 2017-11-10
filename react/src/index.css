@@ -19,7 +19,7 @@ body {
   background-image: url("background.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: 100%;
+  background-size: 100% 100%;
 }
 
 .App-title {
@@ -127,6 +127,10 @@ body {
   color: 	#8B0000;
 }
 
+.eventState {
+  font-size: 20px;
+  color: 	#8B0000;
+}
 .closeButton {
   left: 185px;
   bottom: 530px;

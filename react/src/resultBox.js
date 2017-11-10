@@ -32,13 +32,16 @@ class ResultBox extends Component {
         this.setState({posts});
       });
     }
-    click(id, des, time, lat, long, place){
+    click(id, des, time, lat, long, place, state, country){
       this.setState({eventId: id,
                      eventDes: des,
                      eventTime: time,
                      latitude: lat,
                      longitude: long,
-                     eventPlace: place});
+                     eventPlace: place,
+                     eventState: state,
+                     eventCountry: country
+                      });
       this.togglePopup();
     }
     degreesToRadians(degrees) {
@@ -59,8 +62,6 @@ class ResultBox extends Component {
 
 
       buildRow() {
-        let hey = this.distanceInKmBetweenEarthCoordinates(this.props.searchLat, this.props.searchLng,
-        45.50561  , -73.56712)
 
         return this.state.posts
         .filter(events =>
@@ -72,7 +73,8 @@ class ResultBox extends Component {
             <div key={events.key} className='result_box'
                 onClick={() => this.click(events.name, events.description,
                 events.start_time, events.place.location.latitude,
-                events.place.location.longitude, events.place.location.street)}
+                events.place.location.longitude, events.place.location.street,
+                events.place.location.state, events.place.location.country)}
                 id={events._id}
                 >
                 <p>{events.name}</p>
@@ -104,6 +106,8 @@ class ResultBox extends Component {
                   <p className="eventTime">{this.state.eventTime.slice(0, 10)}</p>
                   <h2 className="address">Address:</h2>
                   <p className="eventPlace">{this.state.eventPlace}</p>
+                  <p className="eventState">{this.state.eventState}</p>
+                  <p className="eventState">{this.state.eventCountry}</p>
                   <h2 className="info">Info:</h2>
                   <p className="eventDesc">{this.state.eventDes}</p>
                   <div className="inner_map">
