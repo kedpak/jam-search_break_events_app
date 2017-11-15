@@ -26,6 +26,7 @@ class App extends Component {
     handleChange(event) {
       this.setState({value: event.target.value});
     }
+    // handles submit of gps cord returned by auto fill
     handleSubmit = (event) => {
       event.preventDefault()
       geocodeByAddress(this.state.location)
@@ -37,11 +38,11 @@ class App extends Component {
     click() {
       this.setState({status: !this.state.status});
     }
-
+    //handles click for post events
     postClick() {
       this.setState({postForm: !this.state.postForm})
     }
-
+    // pop up form
     popUpForm() {
       const inputProps2 = {
         value: this.state.location2,
@@ -54,31 +55,30 @@ class App extends Component {
          { formApi => (
            <div className="fill_form">
               <form onSubmit={formApi.submitForm} id="form1">
-                <label htmlFor="name">Name of Event: </label>
-                <Text field="name" id="name" />
+                  <label htmlFor="name">Name of Event: </label>
+                  <Text field="name" id="name" />
               </form>
               <form onSubmit={formApi.submitForm} id="form2">
-                <label htmlFor="location">Event Location: </label>
-                <PlacesAutocomplete className="autoForm" inputProps={inputProps2} />
+                  <label htmlFor="location">Event Location: </label>
+                  <PlacesAutocomplete className="autoForm" inputProps={inputProps2} />
               </form>
               <form onSubmit={formApi.submitForm} id="form3">
-                <label htmlFor="description">Event Description: </label>
-                <Text field="description" id="description" />
+                  <label htmlFor="description">Event Description: </label>
+                  <Text field="description" id="description" />
               </form>
               <form onSubmit={formApi.submitForm} id="form4">
-                <label htmlFor="address">Event Address: </label>
-                <Text field="address" id="address" />
+                  <label htmlFor="address">Event Address: </label>
+                  <Text field="address" id="address" />
               </form>
               <form onSubmit={formApi.submitForm} id="form5">
-                <label htmlFor="date">Event date: </label>
-                <Text field="date" id="date" />
+                  <label htmlFor="date">Event date: </label>
+                  <Text field="date" id="date" />
               </form>
               <button type="submit">Submit</button>
            </div>
 
          )}
-         </Form>
-
+            </Form>
             </div>
       </div>
     )
@@ -93,24 +93,23 @@ class App extends Component {
 
     return (
       <div className="App">
-        <form className="form-body" onSubmit={this.handleSubmit}>
+         <form className="form-body" onSubmit={this.handleSubmit}>
          <h2 className="Logo">
            Jam Search
          </h2>
          <label className="nav_lab">
             search location:
             <PlacesAutocomplete className="autos" inputProps={inputProps} />
-            </label>
+        </label>
         <input type="submit" value="Submit" onClick={this.click} className="sub_button"/>
-          <button className="postEvent" onClick={this.postClick}>Post Event!</button>
-          </form>
+            <button className="postEvent" onClick={this.postClick}>Post Event!</button>
+        </form>
           <div className="spacer"></div>
-
           {resultbox}
           {
-           this.state.postForm ?
+            this.state.postForm ?
             this.popUpForm()
-             : null
+            : null
           }
     </div>
     );

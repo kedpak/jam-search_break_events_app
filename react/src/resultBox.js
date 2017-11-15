@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
+/* This component creates boxes for each search result */
 class ResultBox extends Component {
   constructor(props){
     super(props);
@@ -25,14 +26,14 @@ class ResultBox extends Component {
       showPopup: !this.state.showPopup
   });
   }
-   componentDidMount() {
+  componentDidMount() {
     axios.get('http://localhost:3001/api/events')
       .then(res => {
         let posts = res.data.map(obj => obj);
         this.setState({posts});
       });
     }
-    click(id, des, time, lat, long, place, state, country){
+  click(id, des, time, lat, long, place, state, country){
       this.setState({eventId: id,
                      eventDes: des,
                      eventTime: time,
@@ -44,10 +45,12 @@ class ResultBox extends Component {
                       });
       this.togglePopup();
     }
-    degreesToRadians(degrees) {
-        return degrees * Math.PI / 180;
+  degreesToRadians(degrees) {
+      return degrees * Math.PI / 180;
     }
-    distanceInKmBetweenEarthCoordinates(lat1, lon1, lat2, lon2) {
+
+    // finds difference betweent two gps coordinates to determine if search is 50 mil of location
+  distanceInKmBetweenEarthCoordinates(lat1, lon1, lat2, lon2) {
         let earthRadiusKm = 6371;
         let dLat = this.degreesToRadians(lat2-lat1);
         let dLon = this.degreesToRadians(lon2-lon1);
@@ -60,9 +63,8 @@ class ResultBox extends Component {
               return earthRadiusKm * c;
       }
 
-
-      buildRow() {
-
+  /* iterate through db and display data which match parameters */
+  buildRow() {
         return this.state.posts
         .filter(events =>
             events.place
@@ -96,7 +98,9 @@ class ResultBox extends Component {
                 </div>
             </div>);
     }
-    popUp() {
+
+    /* Data displayed within popup after onClick of specific component */
+  popUp() {
       return (
             <div className='popup'>
                <div className='popup_inner'>
