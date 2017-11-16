@@ -19,6 +19,9 @@ Type in city to find events inside search bar. Click on event component for more
 * HTML
 * CSS
 
+## Details
+All data is placed inside Mongo database. Search parameter is used with module known as auto fill. Auto fill returns a gps coordinate, and on click, the application itereates through all data and checks for events that are within a 50 mile radius of search parameter. Events will be displayed, and user may click on component to read more details of the event. Each component returns a map of where the event will be taking place. 
+
 ## Authors
 Kevin Pak
 
