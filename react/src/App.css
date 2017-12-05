@@ -42,42 +42,14 @@ button {
   to { transform: rotate(360deg); }
 }
 
-.Logo {
-  font-family: 'Jungle Clean';
-  color: #800000;
-  margin: 0;
-  padding-right: 10px;
-  text-align: left;
-  float: left;
-  margin-top: 30px;
-  margin-left: 30px;
-  font-size: 45px;
-}
 .form-body {
   background-color: black;
   position: fixed;
   width: 100%;
   z-index: 1;
 }
-.nav_lab {
-  font-size: 25px;
-  font-family: 'Turntablz BB';
-  background-color: black;
-  border-radius: 25px;
-  width: 500px;
 
-}
 
-.autos {
-  height: 20px;
-  color: black;
-}
-
-.searchBox {
-  padding-top: 10px;
-  border-radius: 20px;
-  background-color: gray;
-}
 
 .result_box {
   font-size: 20px;
@@ -115,9 +87,9 @@ button {
 }
 
 .inner_map {
-
   padding-left: 19%;
 }
+
 .spacer {
   width: 100%;
   height: 140px;
@@ -144,6 +116,28 @@ button {
     padding: 0px;
   }
 
+@media (min-width: 1025px) {
+
+  .nav_lab {
+    font-size: 25px;
+    font-family: 'Turntablz BB';
+    background-color: black;
+    border-radius: 25px;
+    width: 500px;
+
+  }
+  .Logo {
+    font-family: 'Jungle Clean';
+    color: #800000;
+    margin: 0;
+    padding-right: 10px;
+    text-align: left;
+    float: left;
+    margin-top: 30px;
+    margin-left: 30px;
+    font-size: 45px;
+  }
+
   .postEvent {
     height: 50px;
     float: right;
@@ -151,6 +145,119 @@ button {
     font-size: 25px;
     background-color: black;
     border-radius: 25px;
-    margin-top: 40px;
+    margin-top: 0;
     color: #800000;
   }
+}
+
+
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  .nav_lab {
+    font-size: 15px;
+    font-family: 'Turntablz BB';
+    background-color: black;
+    border-radius: 25px;
+    width: 300px;
+    height: 100px;
+
+  }
+
+  .Logo {
+    font-family: 'Jungle Clean';
+    color: #800000;
+    margin: 0;
+    padding-right: 10px;
+    text-align: left;
+    float: left;
+    margin-top: 30px;
+    margin-left: 30px;
+    font-size: 25px;
+  }
+
+  .postEvent {
+    height: 50px;
+    float: right;
+    font-family: 'Turntablz BB';
+    font-size: 25px;
+    background-color: black;
+    border-radius: 25px;
+    margin-top: 0;
+    color: #800000;
+  }
+
+  .spacer {
+    width: 100%;
+    height: 240px;
+
+  }
+}
+
+
+
+@media (max-width: 599px) {
+  .Logo {
+    font-family: 'Jungle Clean';
+    color: #800000;
+    margin: 0;
+    padding-right: 10px;
+    text-align: left;
+    float: left;
+    margin-top: 30px;
+    margin-left: 30px;
+    font-size: 20px;
+    margin-top: 20px;
+    padding-top: 0;
+  }
+
+  .nav_lab {
+    font-size: 10px;
+    font-family: 'Turntablz BB';
+    background-color: black;
+    border-radius: 25px;
+    width: 200px;
+    height: 20px;
+    margin-bottom: 1;
+    padding-bottom: 0;
+
+  }
+  .postEvent {
+    height: 30px;
+    float: right;
+    font-family: 'Turntablz BB';
+    font-size: 20px;
+    background-color: black;
+    border-radius: 25px;
+    margin-top: 0;
+    color: #800000;
+  }
+
+  .sub_button {
+    height: 30px;
+    background-color: #FFD700;
+    margin-bottom: 15px;
+    border-radius: 60px;
+    font-size: 20px;
+    font-family: 'Turntablz BB';
+    background-color: black;
+    border-radius: 25px;
+    color: #800000;
+    }
+
+    .the_map {
+      overflow: hidden;
+      width :100px;
+      height: 100px;
+      display: flex; /*added*/
+      flex-direction: column;
+      padding-left: 13%;
+      border-radius: 15px;
+    }
+
+    .spacer {
+      width: 100%;
+      height: 240px;
+
+    }
+
+}
