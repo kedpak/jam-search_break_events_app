@@ -102,9 +102,8 @@ class ResultBox extends Component {
     /* Data displayed within popup after onClick of specific component */
   popUp() {
       return (
-            <div className='popup'>
+            <div className='popup' onClick={this.togglePopup.bind(this)}>
                <div className='popup_inner'>
-               <button onClick={this.togglePopup.bind(this)} className="closeButton">X</button>
                   <p className="eventName">{this.state.eventId}</p>
                   <h2 className="when">When:</h2>
                   <p className="eventTime">{this.state.eventTime.slice(0, 10)}</p>
@@ -120,7 +119,7 @@ class ResultBox extends Component {
                     lat: this.state.latitude,
                     lng: this.state.longitude
                   }}
-                  style={{width:'600px', height:'600px', position:'relative'}}>
+                  style={{width:'300px', height:'300px', position:'center'}}>
                     <Marker onClick={this.onMarkerClick}
                           name={'Current location'} />
                     <InfoWindow onClose={this.onInfoWindowClose}>
