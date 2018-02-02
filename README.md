@@ -1,6 +1,7 @@
 # Jam Search
 ## Description
 #### Web App that let's you find B-boy events in a city!
+(Code quality for this project is not optimized. Was used as a sandbox to learn MERN stack technologies. Would later like to redue this project with more modular components and improved data flow.)
 This is a simple web app which allows the user to search b-boy/b-girl events in a specific city (Anywhere in the world!). Utilizes the Facebook Graph API to find events that are related breaking. Handles finding competitions, workshops, practice spots, and more. 
 
 
